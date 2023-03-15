@@ -7,12 +7,13 @@ module.exports = {
     ],
     theme: {
       extend: {},
-    },
-    colors: {
-      "custom-black": "#070918",
-      "primary": "#0040F4",
-      "primary-hover": "#0438CA",
-      "secondary": "#314968",
+      colors: {
+        "custom-white": "#ffffff",
+        "custom-black": "#070918",
+        "primary": "#0040F4",
+        "primary-hover": "#0438CA",
+        "secondary": "#314968",
+      },
     },
     plugins: [],
 }
