@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Button, Icon, Logo, MenuLink } from 'ui'
+import { Button, Icon, Logo, MenuLink } from '../..';
 
 type User = {
   name: string;
@@ -15,8 +14,8 @@ interface HeaderProps {
 }
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount }: HeaderProps) => (
-  <header>
-    <nav className="bg-white border-gray-200 px-4 lg:px-6 py-6">
+  <header className="bg-custom-white">
+    <nav className="bg-white border-gray-200 mx-32 py-6">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <div className="flex items-center">
           <img src={Icon} />
