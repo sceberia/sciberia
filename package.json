@@ -14,12 +14,18 @@
   },
   "devDependencies": {
     "eslint-config-custom": "*",
-    "prettier": "latest",
+    "prettier": "^2.8.4",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "config": "^0.0.1",
+    "postcss": "^8.4.21",
+    "prettier-plugin-tailwindcss": "^0.2.4",
+    "tailwindcss": "^3.2.7"
+  },
   "packageManager": "npm@8.19.3"
 }
