@@ -11,15 +11,15 @@ interface HeaderProps {
   onLogout: () => void;
   onCreateAccount: () => void;
   onAccount: () => void;
+  book: boolean
 }
-
-export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount }: HeaderProps) => (
+export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount, book = false }: HeaderProps) => (
   <header className="bg-custom-white">
     <nav className="bg-white border-gray-200 mx-32 py-6">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
         <div className="flex items-center">
-          <img src={Icon} />
-          <img src={Logo} />
+          <img src={book ? Icon : Icon.src} className="mr-2" />
+          <img src={book ? Logo : Logo.src} />
         </div>
         <div className="flex items-center lg:order-2">
           {user ?
@@ -32,7 +32,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount }: 
               <Button
                 label="Регистрация"
                 onClick={onCreateAccount}
-                primary
+                type="default"
                 size="medium"
               />
             </>
@@ -41,7 +41,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount }: 
               <Button
                 label="Личный кабинет"
                 onClick={onAccount}
-                primary
+                type="default"
                 size="medium"
               />
             </>

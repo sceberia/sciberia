@@ -14,6 +14,7 @@ interface MenuLinkProps {
    * Ссылка
    */
   href: string;
+  book: boolean;
 }
 
 /**
@@ -23,6 +24,7 @@ export const MenuLink = ({
   label,
   href,
   arrow,
+  book = false,
   ...props
 }: MenuLinkProps) => {
   return (
@@ -31,7 +33,7 @@ export const MenuLink = ({
       className={['text-custom-black text-lg font-normal flex'].join(' ')}
       {...props}
     >
-      {label} {arrow ? <img src={ArrowDown}/> : ""}
+      {label} {arrow ? <img src={book ? ArrowDown : ArrowDown.src }/> : ""}
     </a>
   );
 };

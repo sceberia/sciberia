@@ -4,12 +4,7 @@ interface ButtonProps {
   /**
    * Первичный?
    */
-  primary?: boolean;
-  // /**
-  //  * Какой цвет задать 
-  //  * //TODO сделать массив цветов
-  //  */
-  // backgroundColor?: string;
+  type?: "default" | "empty" | "disabled";
   /**
    * Какого размера кнопка
    */
@@ -22,6 +17,8 @@ interface ButtonProps {
    * Обработчик нажатия
    */
   onClick?: () => void;
+  
+  disabled?: boolean
 }
 
 const getSizeClasses = (size:any) => {
@@ -37,23 +34,39 @@ const getSizeClasses = (size:any) => {
     }
   }
 }
+
+const getTypeClasses = (type:any) => {
+  switch(type){
+    case 'disabled': {
+      return 'text-text-secondary hover:light-blue bg-bg-primary'
+    }
+    case 'empty': {
+      return 'text-primary hover:light-blue'
+    }
+    default: {
+      return 'bg-primary hover:primary-hover'
+    }
+  }
+}
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({
-  primary = false,
+  type = "default",
   size = 'medium',
   // backgroundColor,
+  disabled = false,
   label,
   ...props
 }: ButtonProps) => {
   const sizeClass = getSizeClasses(size)
-  const mode = primary ? 'bg-primary hover:primary-hover' : 'text-primary hover:light-blue';
+  const mode = getTypeClasses(type);
   return (
     <button
       type="button"
-      className={['text-custom-white text-lg', sizeClass, mode].join(' ')}
+      className={['text-custom-white text-lg w-full', sizeClass, mode].join(' ')}
       // style={{ backgroundColor }}
+      disabled={disabled}
       {...props}
     >
       {label}

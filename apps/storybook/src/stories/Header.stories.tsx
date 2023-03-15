@@ -18,7 +18,10 @@ UserIsLogin.args = {
   user: {
     name: 'Test Test',
   },
+  book: true
 };
 
 export const UserLoginIn = Template.bind({});
-UserLoginIn.args = {};
+UserLoginIn.args = {
+  book: true
+};
