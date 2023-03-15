@@ -5,15 +5,15 @@ interface ButtonProps {
    * Первичный?
    */
   primary?: boolean;
-  /**
-   * Какой цвет задать 
-   * //TODO сделать массив цветов
-   */
-  backgroundColor?: string;
+  // /**
+  //  * Какой цвет задать 
+  //  * //TODO сделать массив цветов
+  //  */
+  // backgroundColor?: string;
   /**
    * Какого размера кнопка
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'medium' | 'large';
   /**
    * Надпись кнопки
    */
@@ -26,14 +26,14 @@ interface ButtonProps {
 
 const getSizeClasses = (size:any) => {
   switch(size){
-    case 'small': {
-      return 'p-32 py-2.5'
-    }
+    // case 'small': {
+    //   return 'py-5 px-6'
+    // }
     case 'large': {
-      return 'px-6 py-3'
+      return 'py-5 px-6 rounded-2xl font-semibold'
     }
     default: {
-      return 'px-5 py-2.5'
+      return 'py-3 px-4 rounded-xl font-normal '
     }
   }
 }
@@ -43,17 +43,17 @@ const getSizeClasses = (size:any) => {
 export const Button = ({
   primary = false,
   size = 'medium',
-  backgroundColor,
+  // backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
   const sizeClass = getSizeClasses(size)
-  const mode = primary ? 'bg-primary' : 'storybook-button--secondary';
+  const mode = primary ? 'bg-primary hover:primary-hover' : 'text-primary hover:light-blue';
   return (
     <button
       type="button"
-      className={['text-custom-white rounded-xl', sizeClass, mode].join(' ')}
-      style={{ backgroundColor }}
+      className={['text-custom-white text-lg', sizeClass, mode].join(' ')}
+      // style={{ backgroundColor }}
       {...props}
     >
       {label}

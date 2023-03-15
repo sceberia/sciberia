@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header } from './Header';
 
 export default {
-  title: 'Example/Header',
+  title: 'components/Header',
   component: Header,
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
@@ -14,12 +14,12 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
+export const UserIsLogin = Template.bind({});
+UserIsLogin.args = {
   user: {
-    name: 'Jane Doe',
+    name: 'Test Test',
   },
 };
 
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
+export const UserLoginIn = Template.bind({});
+UserLoginIn.args = {};
