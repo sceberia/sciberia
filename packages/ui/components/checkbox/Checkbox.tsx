@@ -4,11 +4,9 @@ interface CheckBoxProps {
     /**
      * Обработчик нажатия
      */
-    onClick?: () => void;
-
-    value: boolean
 
     label: string
+    onChange: (e: any) => void;
 
     defaultValue?: boolean
 }
@@ -17,15 +15,16 @@ interface CheckBoxProps {
  * CheckBox
  */
 export const CheckBox = ({
-    value,
     label,
+    defaultValue=false,
+    onChange,
     ...props
 }: CheckBoxProps) => {
     return (
         <div className="block">
             <div className="mt-2">
                 <label className="inline-flex items-center">
-                    <input type="checkbox" className="w-6 h-6 rounded-full" />
+                    <input type="checkbox" className="w-6 h-6 rounded-full" defaultChecked={defaultValue} onChange={onChange}/>
                     <span className="ml-2 text-text-secondary text-base">{label}</span>
                 </label>
             </div>

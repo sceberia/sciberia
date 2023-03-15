@@ -1,19 +1,16 @@
 import React from 'react';
-import { Button, Icon, Logo, MenuLink } from '../..';
+import { Button, Chat, Icon, Logo, MenuLink } from '../..';
 
-type User = {
-  name: string;
-};
 
 interface HeaderProps {
-  user?: User;
+  auth: boolean;
   onLogin: () => void;
   onLogout: () => void;
   onCreateAccount: () => void;
   onAccount: () => void;
   book: boolean
 }
-export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount, book = false }: HeaderProps) => (
+export const Header = ({ auth = false, onLogin, onLogout, onCreateAccount, onAccount, book = false }: HeaderProps) => (
   <header className="bg-custom-white">
     <nav className="bg-white border-gray-200 mx-32 py-6">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
@@ -22,13 +19,8 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount, bo
           <img src={book ? Logo : Logo.src} />
         </div>
         <div className="flex items-center lg:order-2">
-          {user ?
+          {!auth ?
             <>
-              <Button
-                label="Вход"
-                onClick={onLogin}
-                size="medium"
-              />
               <Button
                 label="Регистрация"
                 onClick={onCreateAccount}
@@ -39,7 +31,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount, bo
             :
             <>
               <Button
-                label="Личный кабинет"
+                label="Выйти"
                 onClick={onAccount}
                 type="default"
                 size="medium"
@@ -61,6 +53,10 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount, onAccount, bo
             </li>
             <li>
               <MenuLink label="Контакты" href="#" />
+            </li>
+            <li className="flex">
+              <img src={book ? Chat : Chat.src} className="mr-[2px]"/>
+              <MenuLink label="Комьюнити" href="#" />
             </li>
           </ul>
         </div>

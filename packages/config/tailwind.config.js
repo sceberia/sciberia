@@ -11,6 +11,22 @@ module.exports = {
         fontFamily: {
           sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         },
+        backgroundImage: {
+          'main-background': "url('/background-image/background-main.png')",
+        }
+      },
+      fontSize: {
+        sm: ['18px', '28px'],
+        base: ['20px', '32px'],
+        lg: ['24px', '32px'],
+        xl: ['40px', '58px'],
+        'large': ['56px', '70px'],
+        '2xl': ['64px', '78px'],
+      },
+      fontWeight: {
+        regular: '400',
+        semibold: '600',
+        extrabold: '800',
       },
       colors: {
         "custom-white": "#ffffff",

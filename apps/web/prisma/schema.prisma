@@ -6,6 +6,47 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String   @unique
+  emailVerified   Boolean   @default(false)
+  first_name      String
+  last_name       String
+  payments        Payment[]
+  password        String
+  info            UserInfo?
+  recovery        RecoveryToken?
+  token           VerificationToken?
+}
+
+model Payment {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  amount    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  paid      Boolean  @default(false)
+}
+
+model VerificationToken {
+  id         String   @id @default(cuid())
+  token      String   @unique
+  expires    DateTime
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([id, token])
+}
+
+model RecoveryToken {
+  id         String   @id @default(cuid())
+  token      String   @unique
+  expires    DateTime
+  userId     String   @unique
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([id, token])
 }

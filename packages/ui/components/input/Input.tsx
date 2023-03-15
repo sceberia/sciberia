@@ -24,13 +24,15 @@ interface InputProps {
     /**
      * Тип кнопки
      */
-    type?: "text" | "password" | "submit" | "checkbox"
+    type?: "text" | "password" | "submit" | "checkbox" | "tel"
 
     /**
      * Маржин с спрваа
      */
     marginRight?: boolean;
-
+    
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    
 }
 
 /**

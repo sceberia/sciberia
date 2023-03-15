@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRight } from '../..';
 
 interface ButtonProps {
   /**
@@ -13,16 +14,18 @@ interface ButtonProps {
    * Надпись кнопки
    */
   label: string;
-  /**
-   * Обработчик нажатия
-   */
-  onClick?: () => void;
-  
+
+  arrowRight?: boolean
+
+  book?: boolean
+
   disabled?: boolean
+
+  onClick: (e: any) => void;
 }
 
-const getSizeClasses = (size:any) => {
-  switch(size){
+const getSizeClasses = (size: any) => {
+  switch (size) {
     // case 'small': {
     //   return 'py-5 px-6'
     // }
@@ -35,8 +38,8 @@ const getSizeClasses = (size:any) => {
   }
 }
 
-const getTypeClasses = (type:any) => {
-  switch(type){
+const getTypeClasses = (type: any) => {
+  switch (type) {
     case 'disabled': {
       return 'text-text-secondary hover:light-blue bg-bg-primary'
     }
@@ -56,6 +59,8 @@ export const Button = ({
   size = 'medium',
   // backgroundColor,
   disabled = false,
+  arrowRight = false,
+  book = false,
   label,
   ...props
 }: ButtonProps) => {
@@ -64,12 +69,15 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={['text-custom-white text-lg w-full', sizeClass, mode].join(' ')}
+      className={['text-custom-white text-sm w-full', sizeClass, mode].join(' ')}
       // style={{ backgroundColor }}
       disabled={disabled}
       {...props}
     >
-      {label}
+      <span className="flex justify-center">
+        {label}  {arrowRight ? <img src={book ? ArrowRight : ArrowRight.src} className={"ml-2"}/> : ""}
+      </span>
+
     </button>
   );
 };
