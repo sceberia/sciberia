@@ -13,7 +13,6 @@ jobs:
       - name: Install
         run: |
           npm install
-          npm run build-storybook
       - name:  Build 🔧
         working-directory: ./apps/storybook
         run: |
