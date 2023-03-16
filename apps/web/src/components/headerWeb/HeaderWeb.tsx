@@ -1,10 +1,18 @@
+'use client';
+
 import { Chat, Header, MenuLink } from "ui";
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 
 export default function HeaderWeb() {
+    const router = useRouter();
     return (
-        <Header auth={false} links={
+        <Header 
+        onCreateAccount={() => {
+            router.push('/auth/register')
+        }}
+        auth={false} links={
             <>
                 <Link href="/about">
                     <MenuLink label="О нас" />

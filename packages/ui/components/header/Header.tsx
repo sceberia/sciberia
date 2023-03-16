@@ -6,25 +6,25 @@ interface HeaderProps {
   auth: boolean;
   // onLogin: () => void;
   // onLogout: () => void;
-  // onCreateAccount: () => void;
+  onCreateAccount: () => void;
   // onAccount: () => void;
   book?: boolean
   links: ReactElement
 }
-export const Header = ({ auth = false,  book = false, links }: HeaderProps) => (
+export const Header = ({ auth = false, onCreateAccount,  book = false, links }: HeaderProps) => (
   <header className="bg-custom-white">
     <nav className="bg-white border-gray-200 mx-32 py-6">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-        <div className="flex items-center">
+        <a className="flex items-center" href="https://sciberia-plus.ru/">
           <img src={book ? Icon : Icon.src} className="mr-2" />
           <img src={book ? Logo : Logo.src} />
-        </div>
+        </a>
         <div className="flex items-center lg:order-2">
           {!auth ?
             <>
               <Button
                 label="Регистрация"
-                // onClick={onCreateAccount}
+                onClick={onCreateAccount}
                 type="default"
                 size="medium"
               />
