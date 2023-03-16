@@ -3,6 +3,7 @@
 import { Button, CheckBox, Icon, Input, Logo, TabLink } from "ui";
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
+import Image from 'next/image'
 
 function getActive(active: boolean) {
     const disabledClass = active ? "bg-custom-white" : "bg-bg-primary"
@@ -40,8 +41,8 @@ export default function Register() {
     return (
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8 bg-custom-white rounded-[32px]">
             <div className="flex justify-center pt-[26px]">
-                <img src={Icon.src} className="mr-2" />
-                <img src={Logo.src} />
+                <Image src={Icon} className="mr-2" alt=""/>
+                <Image src={Logo} alt=""/>
             </div>
             <div className="w-full bg-bg-primary rounded-2xl">
                 <Tab.Group>

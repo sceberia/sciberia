@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight } from '../..';
 
@@ -21,7 +22,7 @@ interface ButtonProps {
 
   disabled?: boolean
 
-  onClick: (e: any) => void;
+  onClick?: (e: any) => void;
 }
 
 const getSizeClasses = (size: any) => {

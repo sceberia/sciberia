@@ -8,9 +8,9 @@ export default async function handler(
         res.status(400).json({ message: "не верный запрос" });
         return
     }
-    const message =
+    const message = encodeURIComponent(
         `Обратная связь ${name}\n ` +
-        `Заказал обратную связнь на номер ${phone}`;
+        `Заказал обратную связнь на номер ${phone}`);
     const ret = await fetch(
         `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_CHANEL_ID}&text=${message}`
     );

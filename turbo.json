@@ -4,6 +4,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "env": ["TELEGRAM_BOT_TOKEN", "TELEGRAM_CHANEL_ID", "NEXTAUTH_SECRET", "NODE_ENV", "MAIL_PASS", "MAIL_HOST" ,"MAIL_USER"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {

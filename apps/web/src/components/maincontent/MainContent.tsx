@@ -1,5 +1,6 @@
 
 import { Button, MainImage } from "ui";
+import Image from 'next/image'
 
 export default function MainContent() {
     return (
@@ -13,7 +14,7 @@ export default function MainContent() {
                         <Button label="Ознакомиться" type="default" />
                     </div>
                 </div>
-                <img src={MainImage.src} alt="image" className="w-full" />
+                <Image src={MainImage} className="w-full" alt=""/>
             </div>
         </section>
     )

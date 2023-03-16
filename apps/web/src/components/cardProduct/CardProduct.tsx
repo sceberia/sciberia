@@ -1,8 +1,9 @@
 "use client";
 
 import { Button, MediumCard } from "ui"
+import Image from 'next/image'
 
-export default function CardProduct({ title, description, img }: { title: string, description: string, img?: string }) {
+export default function CardProduct({ title, description, img }: { title: string, description: string, img?: any }) {
 
     return (
         <MediumCard >
@@ -17,7 +18,7 @@ export default function CardProduct({ title, description, img }: { title: string
                     </div>
                 </div>
                 {img ? (<div className="col-span-4">
-                    <img src={img} className="absolute right-0 w-48 bottom-0" />
+                    <Image src={img} className="absolute right-0 w-48 bottom-0" alt=""/>
                 </div>) : ""}
 
             </div>

@@ -12,7 +12,7 @@ export default async function handler(
         `Обратная связь ${name}\n\n` +
         `Заказал обратную связнь на номер ${phone}`;
     const ret = await fetch(
-        `https://api.telegram.org/bot${process.env.TELEGRAMBOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAMBOT_CHATID}&text=${message}`
+        `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${process.env.TELEGRAM_CHANEL_ID}&text=${message}`
     );
     res.status(201).json({ message: "Обратная связь отправлена" })
 }

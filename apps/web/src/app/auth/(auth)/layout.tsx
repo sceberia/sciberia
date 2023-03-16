@@ -1,5 +1,6 @@
 'use client';
 import { AuthImage } from "ui";
+import Image from 'next/image'
 
 export default function AuthLayout({
     children,
@@ -15,8 +16,8 @@ export default function AuthLayout({
                     </div>
                     <div
                         className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-                        <img
-                            src={AuthImage.src}
+                        <Image
+                            src={AuthImage}
                             alt="Auth Image" />
                     </div>
                 </div>
