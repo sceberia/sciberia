@@ -17,7 +17,7 @@ export default function Footer({ book = false }: FooterProps) {
                     <div className="flex flex-wrap gap-8">
                         <div className="text-sm font-regular">Продукты</div>
                         <div className="text-sm font-regular">О нас</div>
-                        <div className="text-sm font-regular">Контакты</div>
+                        {/* <div className="text-sm font-regular">Контакты</div> */}
                         <div className="text-sm font-regular">Комньюнити</div>
                     </div>
                     <div className="flex flex-wrap">

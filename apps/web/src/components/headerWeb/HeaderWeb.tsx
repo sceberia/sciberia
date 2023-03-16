@@ -23,9 +23,9 @@ export default function HeaderWeb() {
                 {/* <Link href={"/"}>
                 <MenuLink label="Статьи" href="#" />
               </Link> */}
-                <Link href={"/contacts"}>
+                {/* <Link href={"/contacts"}>
                     <MenuLink label="Контакты" />
-                </Link>
+                </Link> */}
                 <Link className="flex" href={"/community"}>
                     <Image src={Chat} className="mr-[2px]" alt=""/>
                     <MenuLink label="Комьюнити" />
