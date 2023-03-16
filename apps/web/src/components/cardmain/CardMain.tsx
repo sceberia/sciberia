@@ -6,7 +6,7 @@ export default function CardMain({ label, description }: { label: string, descri
     return (
         <MediumCard primary>
             <div className="h-36">
-                <h1 className="text-xl font-extrabold">{label}</h1>
+                <h1 className="text-lg font-extrabold">{label}</h1>
                 <div className="text-base font-regular">{description}</div>
             </div>
         </MediumCard>
