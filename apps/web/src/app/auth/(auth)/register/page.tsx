@@ -3,6 +3,7 @@
 import { Button, CheckBox, Icon, Input, Logo, TabLink } from "ui";
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
+import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 
 function getActive(active: boolean) {
@@ -11,6 +12,7 @@ function getActive(active: boolean) {
 }
 
 export default function Register() {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -36,6 +38,7 @@ export default function Register() {
             },
             )
         })
+        router.push('/')
     }
 
     return (
