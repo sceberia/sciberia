@@ -5,6 +5,7 @@ import { Fragment, useState } from 'react'
 import Footer from "ui/components/footer/Footer"
 import HeaderWeb from "../headerWeb/HeaderWeb"
 import Image from 'next/image'
+import { toast } from "react-toastify";
 
 export default function ProductPage() {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,16 @@ export default function ProductPage() {
             },
             )
         })
+        toast.success('Ваша заявка отправлена', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
         setIsOpen(false);
     }
     return (

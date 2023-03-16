@@ -1,3 +1,5 @@
+// import { ToastContainer } from 'react-toastify'
+import LayoutMain from '@/components/LayoutMain/LayoutMain'
 import './globals.css'
 export const metadata = {
   title: 'Sciberia+',
@@ -9,8 +11,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-      <html lang="ru">
-        <body className="bg-bg-primary">{children}</body>
-      </html>
+    <html lang="ru">
+
+      <body className="bg-bg-primary">      <LayoutMain />{children}</body>
+    </html>
   )
 }

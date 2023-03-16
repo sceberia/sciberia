@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
+import { toast } from "react-toastify";
 
 function getActive(active: boolean) {
     const disabledClass = active ? "bg-custom-white" : "bg-bg-primary"
@@ -34,18 +35,42 @@ export default function Register() {
             },
             method: 'POST',
             body: JSON.stringify({
-                email, first_name: firstName, last_name: lastName ,password
+                email, first_name: firstName, last_name: lastName, password
             },
             )
         })
+        if (res.status === 422) {
+            const json = await res.json();
+            toast.error(json.message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            return
+        }
         router.push('/')
+        toast.success('Регистрация успешна прошла', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }
 
     return (
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8 bg-custom-white rounded-[32px]">
             <div className="flex justify-center pt-[26px]">
-                <Image src={Icon} className="mr-2" alt=""/>
-                <Image src={Logo} alt=""/>
+                <Image src={Icon} className="mr-2" alt="" />
+                <Image src={Logo} alt="" />
             </div>
             <div className="w-full bg-bg-primary rounded-2xl">
                 <Tab.Group>

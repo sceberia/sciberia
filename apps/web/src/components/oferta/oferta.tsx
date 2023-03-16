@@ -1,5 +1,6 @@
 "use client";
 import {useState} from 'react';
+import { toast } from 'react-toastify';
 import { BigCard, Button, CheckBox, Input } from "ui";
 
 export default function Oferta() {
@@ -7,12 +8,12 @@ export default function Oferta() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [check, setCheck] = useState(false);
-    if(send){
-        //TODO переделать
-        return (
-            <div>Отправлено</div>
-        )
-    }
+    // if(send){
+    //     //TODO переделать
+    //     return (
+    //         <div>Отправлено</div>
+    //     )
+    // }
     return (
         <BigCard primary={false}>
             <div className="p-10">
@@ -59,6 +60,16 @@ export default function Oferta() {
                                 )
                             })
                             if(res.status === 201){
+                                toast.success('Ваша заявка отправлена', {
+                                    position: "top-right",
+                                    autoClose: 5000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "light",
+                                });
                                 setSend(true);
                             }
                         }}

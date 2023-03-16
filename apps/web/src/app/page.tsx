@@ -1,30 +1,31 @@
 import CardMain from "@/components/cardmain/CardMain";
 import Oferta from "@/components/oferta/oferta";
 import { BigCard, Button, Card, CardPacsImage, CardViewerImage, Frame, Header, MainImage, MenuLink, Tools, Widget } from "ui";
-import Footer from "ui/components/footer/Footer";
 import { getCurrentUser } from "@/lib/session";
 import CardProduct from "@/components/cardProduct/CardProduct";
 import MainContent from "@/components/maincontent/MainContent";
 import HeaderWeb from "@/components/headerWeb/HeaderWeb";
 import Image from 'next/image'
+import FooterMain from "@/components/Footer/Footer";
+
 
 export default async function Home() {
   const user = await getCurrentUser()
-  console.log(user)
   return (
     <div >
-      <HeaderWeb/>
+
+      <HeaderWeb />
       <MainContent />
       <div className="mx-auto max-w-screen-xl items-center gap-8 py-8 px-4 sm:py-16 md:grid md:grid-cols-2 lg:px-6 xl:gap-16">
-        <h1 className="mb-4 font-extrabold text-custom-black text-large uppercase">О продукте</h1>
+        <h1 className="mb-4 font-extrabold text-custom-black text-xl uppercase">О продукте</h1>
       </div>
 
       <section className="bg-main-background bg-center bg-no-repeat h-[1000px] relative rounded-[40px]">
         <div className="flex justify-center">
           <div className="absolute bottom-0">
             <div className="flex justify-center pb-4">
-              <Card label="Стандартизация всех процессов и документация" children={<Image src={Tools} className="h-12 w-12 mr-4" alt=""/>} />
-              <Card label="Компьютерное зрение, машинное обучение и инновационные алгоритмы" children={<Image src={Frame} className="h-12 w-12 mr-4" alt=""/>} />
+              <Card label="Стандартизация всех процессов и документация" children={<Image src={Tools} className="h-12 w-12 mr-4" alt="" />} />
+              <Card label="Компьютерное зрение, машинное обучение и инновационные алгоритмы" children={<Image src={Frame} className="h-12 w-12 mr-4" alt="" />} />
               <Card label="Простой и привычный пользовательский интерфейс" children={<Image src={Widget} className="h-12 w-12 mr-4" alt="" />} />
             </div>
           </div>
@@ -44,7 +45,7 @@ export default async function Home() {
         </div>
       </section>
       <div className="mx-auto max-w-screen-xl items-center gap-8 py-8 px-4" id="products">
-        <h1 className="mb-4 font-extrabold text-custom-black text-large uppercase">Продукты</h1>
+        <h1 className="mb-4 font-extrabold text-custom-black text-xl uppercase">Продукты</h1>
         <div className="flex gap-8">
           <CardProduct title="Sciberia Viewer" img={CardViewerImage} description="Входит в реестр отечественного ПО. Не подлежит регистрации в качестве медицинского изделия" />
           <CardProduct title="Sciberia Lungs" description="Программный модуль для обработки рентгеновской компьютерной томографии органов грудной клетки, который формирует количественные и качественные характеристики для классификации неспецифической пневмонии, в том числе вызванной COVID-19" />
@@ -64,7 +65,7 @@ export default async function Home() {
       </div>
       <div className="bg-custom-white mb-24">
         <div className="mx-auto max-w-screen-xl items-center gap-8 py-[80px] px-4">
-          <h1 className="mb-4 font-extrabold text-custom-black text-large uppercase pb-[80px]">Сайберия в цифрах</h1>
+          <h1 className="mb-4 font-extrabold text-custom-black text-xl uppercase pb-[80px]">Сайберия в цифрах</h1>
           <div className="flex gap-8">
             <CardMain label="98%" description="Точность семантической сегментации" />
             <CardMain label="от 15 секунд" description="Время обработки 1-го изображения" />
@@ -73,7 +74,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <Footer />
+      <FooterMain />
     </div>
   )
 }
