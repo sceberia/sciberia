@@ -1,6 +1,7 @@
 // import { ToastContainer } from 'react-toastify'
 import LayoutMain from '@/components/LayoutMain/LayoutMain'
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.css';
 export const metadata = {
   title: 'Sciberia+',
   description: 'Сервис для преобретения продукта Sciberia',
