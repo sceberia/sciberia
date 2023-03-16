@@ -21,8 +21,9 @@ RUN npm install
  
 # Build the project
 COPY --from=builder /app/out/full/ .
+RUN yarn turbo db:generate
 RUN yarn turbo run build --filter=web...
- 
+ RUN ls -la /app/apps/web/.next/
 FROM node:alpine AS runner
 WORKDIR /app
  

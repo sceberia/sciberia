@@ -18,7 +18,6 @@ model User {
   last_name       String
   payments        Payment[]
   password        String
-  info            UserInfo?
   recovery        RecoveryToken?
   token           VerificationToken?
 }
